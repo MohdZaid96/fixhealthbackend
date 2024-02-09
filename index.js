@@ -25,7 +25,7 @@ app.get("/",(req,res)=>{
 app.get("/doctor",async (req,res)=>{
     const {city}=req.query;
     try {
-        const user=await DoctorModel.find({city});
+        const user=await DoctorModel.find({city:city?city:null});
         res.send(user);
     } catch (error) {
         res.send(error)
